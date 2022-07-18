@@ -1,0 +1,7 @@
+<%= turbo_frame_tag 'new_message', target: :_top do %>
+  New form
+  <%= form_with model: @message do |f|%>
+    <%= f.text_field :content %>
+    <%= f.submit 'Share' %>
+  <% end %>
+<% end %>

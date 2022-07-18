@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticated :user do 
-    resources :contents, only: [:index]
-    root 'contents#index'
+    resources :messages, only: [:index, :new, :create]
+    root 'messages#index'
   end
 
   unauthenticated do
