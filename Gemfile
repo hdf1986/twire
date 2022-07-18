@@ -56,6 +56,12 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
 
+  # A library for setting up Ruby objects as test data.
+  gem 'factory_bot_rails'
+
+  # A library for generating fake data such as names, addresses, and phone numbers.
+  gem 'faker'
+
   # RSpec for Rails 5+
   gem 'rspec-rails', '~> 6.0.0.rc1'
 
@@ -69,6 +75,9 @@ group :development do
 end
 
 group :test do
+  # Simple one-liner tests for common Rails functionality
+  gem 'shoulda-matchers', '~> 5.0'
+
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
