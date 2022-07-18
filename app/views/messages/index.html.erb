@@ -1,6 +1,7 @@
 
+<%= turbo_stream_from current_user %>
 <%= turbo_frame_tag 'new_message', src: new_message_path, target: :_top %>
 
-<div id="feed">
+<div id="messages">
   <%= render @messages %>
 </div>
