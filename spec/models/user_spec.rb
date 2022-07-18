@@ -1,5 +1,15 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { build :user }
+
+  it { is_expected.to be_valid }
+
+  it { is_expected.to have_many(:follows) }
+  it { is_expected.to have_many(:followings).with_foreign_key(:follower_id).class_name(:Follow) }
+
+  it { is_expected.to have_many(:followers).through(:follows) }
+  it { is_expected.to have_many(:followed).through(:followings) }
 end
