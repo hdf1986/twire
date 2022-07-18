@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   authenticated :user do 
     resources :messages, only: [:index, :new, :create]
-    resources :users, only: [:show]
+    resources :users, only: [:show] do
+      patch :follow
+    end
     root 'messages#index'
   end
 

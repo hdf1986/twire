@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @messages = Message.all
+    @messages = Message.where(user: current_user.followed)
   end
 
   def new

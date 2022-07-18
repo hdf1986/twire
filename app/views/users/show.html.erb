@@ -1,6 +1,10 @@
+<%= turbo_stream_from @user %>
+
 <%= @user.email %>
 
-<%= turbo_stream_from @user %>
+<% if current_user.id != @user.id %>
+  <%= button_to((current_user.follows?(@user.id) ? 'Unfollow' : 'Follow'), user_follow_path(@user), method: :patch) %>
+<% end %>
 
 <div id="messages">
   <%= render @user.messages %>

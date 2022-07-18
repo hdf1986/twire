@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
   # User relations
   has_many :followers, through: :follows
-  has_many :followed, through: :followings, source: :follower
+  has_many :followed, through: :followings, source: :user
   has_many :messages, dependent: :destroy
+
+  def follows?(user_id)
+    followings.where(user_id: user_id).any?
+  end
 end
