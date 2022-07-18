@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
@@ -8,12 +10,9 @@ class UsersController < ApplicationController
 
     if current_user.follows?(user.id)
       current_user.followings.where(user: user).destroy_all
-
-      head :ok
     else
       current_user.followings.create!(user: user)
-
-      head :ok
     end
+    head :ok
   end
 end

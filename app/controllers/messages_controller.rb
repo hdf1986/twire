@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @messages = Message.where(user: current_user.followed.ids + [current_user.id])
                        .includes(:user)
@@ -21,10 +23,7 @@ class MessagesController < ApplicationController
         format.turbo_stream
       end
     else
-      respond_to do |format|
-        format.turbo_stream
-        format.html { render 'messages/new' }
-      end
+      render 'messages/new'
     end
   end
 
