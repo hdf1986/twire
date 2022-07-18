@@ -10,7 +10,7 @@ class Message < ApplicationRecord
   private
 
   def broadcast_message
-    broadcast_append_to user
-    user.followers.find_each { |u| broadcast_append_to u }
+    broadcast_prepend_to user
+    user.followers.find_each { |u| broadcast_prepend_to u }
   end
 end
