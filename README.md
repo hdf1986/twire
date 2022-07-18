@@ -1,24 +1,35 @@
-# README
+# TWire
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TWire is a social network built in rails, used as an example of Hotwire and its sorrounding technologies
 
-Things you may want to cover:
+## Required software
 
-* Ruby version
+- Postgresql 9.4+ (14 recommended)
+- Redis
+- Ruby 3.0.3
+  - It's suggested to install it using rbenv or rvm as version managers. Their official guides should be able to help you (see https://rvm.io/ or https://github.com/rbenv/rbenv)
 
-* System dependencies
+## Installation
 
-* Configuration
+```bash
+bundle install
+rails db:create db:migrate
+```
 
-* Database creation
+## Usage
 
-* Database initialization
+```bash
+rails server
+```
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Specs & linter
 
-* Deployment instructions
+```bash
+bundle exec rubocop # -A if you want to use autosolve
+bundle exec rspec
+```
 
-* ...
+## Deployment
+
+## License
