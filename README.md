@@ -32,4 +32,10 @@ bundle exec rspec
 
 ## Deployment
 
+### Initial deployment
+```
+flyctl launch # Answer yes, create a new Postgresql DB, and wait till it finishes
+flyctl deploy
+```
+
 ## License
