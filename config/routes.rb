@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   authenticated :user do 
     resources :messages, only: [:index, :new, :create]
+    resources :users, only: [:show]
     root 'messages#index'
   end
 

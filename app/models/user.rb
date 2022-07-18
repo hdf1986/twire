@@ -11,4 +11,5 @@ class User < ApplicationRecord
   # User relations
   has_many :followers, through: :follows
   has_many :followed, through: :followings, source: :follower
+  has_many :messages, dependent: :destroy
 end

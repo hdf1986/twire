@@ -1,0 +1,7 @@
+<%= @user.email %>
+
+<%= turbo_stream_from @user %>
+
+<div id="messages">
+  <%= render @user.messages %>
+</div>
