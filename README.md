@@ -34,7 +34,20 @@ bundle exec rspec
 
 ### Initial deployment
 ```
+# deploy redis redis
+cd deploy/redis
+fly launch --image flyio/redis:6.2.6 --no-deploy --name twire-redis # Pick your own name!
+fly volumes create redis_server --size 1
+
+redis_password=$(rails secret) # you can see it by doing echo $redis_password
+fly secrets set REDIS_PASSWORD=$redis_password 
+
+flyctl deploy
+cd -
+
+# Deploy main app
 flyctl launch # Answer yes, create a new Postgresql DB, and wait till it finishes
+flyctl secrets set REDIS_URL=redis://user:$redis_password@twire-redis.internal:6379/
 flyctl deploy
 ```
 
