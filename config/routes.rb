@@ -3,11 +3,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resources :messages, only: [:index, :new, :create]
+  resources :users, only: [:show] do
+    patch :follow
+  end
   authenticated :user do 
-    resources :messages, only: [:index, :new, :create]
-    resources :users, only: [:show] do
-      patch :follow
-    end
     root 'messages#index'
   end
 

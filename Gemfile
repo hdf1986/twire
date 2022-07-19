@@ -66,6 +66,7 @@ group :development, :test do
   gem 'faker'
 
   # RSpec for Rails 5+
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0.0.rc1'
 
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
