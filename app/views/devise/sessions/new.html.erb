@@ -3,6 +3,7 @@
     <%= form_for(resource,
                  as: resource_name,
                  url: session_path(resource_name),
+                 remote: false,
                  html: {
                          class: "bg-white mb-4 px-8 pt-6 pb-8 rounded"
                  }

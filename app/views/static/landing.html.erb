@@ -1,4 +1,10 @@
-Hi! log in at: 
 
-<%= link_to 'Sign in', new_user_session_path %>
-<%= link_to 'Sign up', new_user_registration_path %>
+<div class="h-full flex flex-col justify-center items-center p-6 lg:p-10">
+  <div class="w-full max-w-sm lg:w-96 mt-16 pb-16 mb-auto">
+    <h1 class="block text-xl font-medium text-gray-700 mb-4">TWire</h1>
+    <h1 class="block text-lg font-medium text-gray-700 mb-4">A dynamic and real-time network for you and your friends</h1>
+
+    <%= link_to 'Sign in', new_user_session_path, class: "transition w-full flex justify-center py-3.5 px-4 rounded-lg shadow-sm text-sm font-medium text-white bg-violet-600 hover:bg-violet-700 focus:outline-none focus:ring-[3px] ring-violet-200 ring-offset-1 focus:ring-violet-200" %>
+
+  </div>
+</div>
