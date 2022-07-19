@@ -12,4 +12,7 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to have_many(:followers).through(:follows) }
   it { is_expected.to have_many(:followed).through(:followings) }
+
+  it { is_expected.to validate_uniqueness_of(:nickname) }
+  it { is_expected.to validate_presence_of(:nickname) }
 end

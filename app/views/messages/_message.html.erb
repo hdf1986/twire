@@ -2,13 +2,12 @@
   <div class="flex items-center space-x-4">
     <div class="min-w-0 space-y-3">
       <span class="block">
-        <h2><strong><%= link_to message.user.email, user_path(message.user) %></strong></h2>
+        <h2><strong><%= link_to message.user.nickname, user_path(message.user) %></strong></h2>
       </span>
       
     </div>
     <div class="sm:flex flex-col flex-shrink-0 items-end space-y-3">
         <%= message.content %>
-
       </div>
   </div>
 </li>

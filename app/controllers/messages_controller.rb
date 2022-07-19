@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-class MessagesController < ApplicationController
-  before_action :authenticate_user!
-
+class MessagesController < SignedInApplicationController
   def index
     @messages = Message.where(user: current_user.followed.ids + [current_user.id])
                        .includes(:user)

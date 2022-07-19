@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :followed, through: :followings, source: :user
   has_many :messages, dependent: :destroy
 
+  validates :nickname, uniqueness: true, presence: true
+
   def follows?(user_id)
     followings.where(user_id: user_id).any?
   end

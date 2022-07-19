@@ -1,10 +1,16 @@
 # frozen_string_literal: true
 
-class UsersController < ApplicationController
-  before_action :authenticate_user!
-
+class UsersController < SignedInApplicationController
   def show
     @user = User.find(params[:id])
+  end
+
+  def update
+    if current_user.update(permitted_params)
+      redirect_to edit_user_path(current_user), notice: 'User has been updated succesfully!'
+    else
+      render 'users/edit'
+    end
   end
 
   def follow
@@ -15,6 +21,12 @@ class UsersController < ApplicationController
     else
       current_user.followings.create!(user: user)
     end
-    head :ok
+    redirect_to user
+  end
+
+  private
+
+  def permitted_params
+    params.require(:user).permit(:nickname)
   end
 end
