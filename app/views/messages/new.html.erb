@@ -1,8 +1,9 @@
 <%= turbo_frame_tag 'new_message', target: :_top do %>
-  <%= form_with model: @message do |f|%>
-    <div class="flex">
-      <%= f.text_field :content, placeholder: 'What\'s happening?', class: 'block w-full pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' %>
-      <%= f.submit 'Share', class: 'inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ml-2' %>
+  <%= form_with model: @message, data: { 'controller':"new-message", 'action': 'turbo:submit-end->new-message#clearText', 'new-message-disabled-class': "bg-gray-200", 'new-message-enabled-class': "bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" } do |f|%>
+    <div class="flex" >
+      <%= f.text_field :content, placeholder: 'What\'s happening?', data: { 'new-message-target': 'text', 'action': 'new-message#validateInput' }, class: 'block w-full pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' %>
+      <%= f.submit 'Share', data: { 'new-message-target': 'submit' },
+      class: 'inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white ml-2' %>
     </div>
   <% end %>
 <% end %>
