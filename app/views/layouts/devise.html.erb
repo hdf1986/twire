@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twire</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="w-full min-h-full md:grid grid-rows-auto-span grid-cols-1 text-gray-600 text-sm antialiased tracking-[-.01em] py-16 lg:pb-0">
+    <%= render 'layouts/navbar' %>
+    <div class="h-full flex flex-col justify-center items-center p-6 lg:p-10">
+      <div class="w-full max-w-sm lg:w-96 mt-16 pb-16 mb-auto">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
