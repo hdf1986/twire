@@ -11,7 +11,7 @@ class User < ApplicationRecord
   # User relations
   has_many :followers, through: :follows
   has_many :followed, through: :followings, source: :user
-  has_many :messages, dependent: :destroy
+  has_many :messages,  -> { order(created_at: :desc) }, dependent: :destroy
 
   validates :nickname, uniqueness: true, presence: true
 

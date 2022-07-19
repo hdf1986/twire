@@ -51,6 +51,29 @@ flyctl secrets set REDIS_URL=redis://user:$redis_password@twire-redis.internal:6
 flyctl deploy
 ```
 
+### Normal deployments
+
+```
+flyctl deploy
+```
+
+### Github actions
+
+Github actions are configured to automatically run on any push to master
+
+### Running commands in the remote environment
+```
+flyctl ssh console
+cd app 
+bundle exec rails console
+```
+
+## TODOs & Contribution
+
+This project is just an example on how to use Hotwire and https://fly.io/, therefore some are still pending, you can find a list of them here https://github.com/hdf1986/twire/issues .
+
+Feel free to fork the project with your fix open a pull request. You can also collaborate reporting issues at https://github.com/hdf1986/twire/issues
+
 ## License
 
 MIT License. Copyright 2022 Hugo David Farji
