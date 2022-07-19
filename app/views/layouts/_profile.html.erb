@@ -1,6 +1,6 @@
 <div class="flex justify-between pb-4">
   <span class="flex items-center">
-    <h1 class="block text-lg font-medium text-gray-700"><%= user.nickname %></h1>
+    <h1 class="block text-lg font-medium text-gray-700"><%= link_to user.nickname, user_path(user) %></h1>
     <% if edit && current_user.id == user.id %>
       <%= link_to '✏️', edit_user_path(current_user) %>
     <% end %>

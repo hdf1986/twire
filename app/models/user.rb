@@ -18,4 +18,8 @@ class User < ApplicationRecord
   def follows?(user_id)
     followings.where(user_id: user_id).any?
   end
+
+  def to_param
+    nickname.to_s
+  end
 end

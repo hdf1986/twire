@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :messages, only: [:index, :new, :create]
-  resources :users, only: [:show, :edit, :update] do
+  resources :users, param: :nickname, only: [:show, :edit, :update] do
     patch :follow
   end
   authenticated :user do 
