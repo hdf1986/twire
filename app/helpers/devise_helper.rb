@@ -1,14 +1,14 @@
-#frozen_string_literal: true
+# frozen_string_literal: true
 
 # devise helper
 module DeviseHelper
   def devise_error_messages!
     return if resource.errors.empty?
 
-    messages = resource.errors.full_messages.map { |msg|
+    messages = resource.errors.full_messages.map do |msg|
       content_tag(:p, "- #{msg}.")
-    }.join
-    sentence = I18n.t("errors.messages.not_saved",
+    end.join
+    sentence = I18n.t('errors.messages.not_saved',
                       count: resource.errors.count,
                       resource: resource.class.model_name.human.downcase)
 
@@ -25,19 +25,19 @@ module DeviseHelper
   def devise_simple_error_messages!
     return if resource.errors.empty?
 
-    sentence = "Ooops!"
+    sentence = 'Ooops!'
     if resource.errors.count == 1
       message =  resource.errors.full_messages[0]
       html = <<-HTML
         <div class="bg-red-lightest border-l-4 border-red text-orange-dark p-4" role="alert">
           <p class="font-bold">#{sentence}</p>
-          <p> #{ message }.</p>
+          <p> #{message}.</p>
         </div>
       HTML
     else
-      messages = resource.errors.full_messages.map { |msg|
+      messages = resource.errors.full_messages.map do |msg|
         content_tag(:li, "#{msg}.")
-      }.join
+      end.join
       html = <<-HTML
         <div class="bg-red-100 border-l-4 border-red-500  mb-4 p-4 text-red-700" role="alert">
           <p class="font-bold">#{sentence}</p>

@@ -42,7 +42,7 @@ RSpec.describe 'User', type: :request do
 
       it 'returns status ok' do
         subject
-        expect(response).to have_http_status(:ok)
+        expect(response).to have_http_status(:found)
       end
 
       it 'creates a follow' do

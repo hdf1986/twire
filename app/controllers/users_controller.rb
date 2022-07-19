@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < SignedInApplicationController
-  before_action :set_user, only: [:edit, :update]
-  
+  before_action :set_user, only: %i[edit update]
+
   def show
     @user = User.find_by_nickname!(params[:nickname])
   end
