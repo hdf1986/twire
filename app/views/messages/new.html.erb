@@ -1,7 +1,8 @@
 <%= turbo_frame_tag 'new_message', target: :_top do %>
-  New form
   <%= form_with model: @message do |f|%>
-    <%= f.text_field :content %>
-    <%= f.submit 'Share' %>
+    <div class="flex">
+      <%= f.text_field :content, placeholder: 'What\'s happening?', class: 'block w-full pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm' %>
+      <%= f.submit 'Share', class: 'inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ml-2' %>
+    </div>
   <% end %>
 <% end %>

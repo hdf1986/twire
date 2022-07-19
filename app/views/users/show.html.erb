@@ -1,11 +1,9 @@
 <%= turbo_stream_from @user %>
-
-<%= @user.email %>
-
-<% if current_user.id != @user.id %>
-  <%= button_to((current_user.follows?(@user.id) ? 'Unfollow' : 'Follow'), user_follow_path(@user), method: :patch) %>
-<% end %>
-
-<div id="messages">
-  <%= render @user.messages %>
+<div class="relative pl-4 pr-6 py-5 hover:bg-gray-50 sm:py-6 sm:pl-6 lg:pl-8 xl:pl-6">
+  <%= render 'layouts/profile', user: @user %>
 </div>
+<h1 class="block xl:pl-6 pl-4 sm:pl-6 text-lg font-medium text-gray-700">Messages</h1>
+
+<ul id="messages" class="relative z-0 divide-y divide-gray-200 border-b border-gray-200">
+  <%= render @user.messages %>
+</ul>

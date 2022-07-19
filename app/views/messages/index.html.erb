@@ -1,7 +1,9 @@
 
 <%= turbo_stream_from current_user %>
-<%= turbo_frame_tag 'new_message', src: new_message_path, target: :_top %>
-
-<div id="messages">
-  <%= render @messages %>
+<div class="relative pl-4 pr-6 py-5 hover:bg-gray-50 sm:py-6 sm:pl-6 lg:pl-8 xl:pl-6">
+  <%= turbo_frame_tag 'new_message', src: new_message_path, target: :_top %>
 </div>
+<h1 class="block xl:pl-6 pl-4 sm:pl-6 text-lg font-medium text-gray-700">Feed</h1>
+<ul id="messages" class="relative z-0 divide-y divide-gray-200 border-b border-gray-200">
+  <%= render @messages %>
+</ul>

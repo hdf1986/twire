@@ -1,6 +1,14 @@
-<div>
-  <p>
-    <strong><%= link_to message.user.email, user_path(message.user) %></strong>
-    <%= message.content %>
-  <p>
-</div>
+<li class="relative pl-4 pr-6 py-5 hover:bg-gray-50 sm:py-6 sm:pl-6 lg:pl-8 xl:pl-6">
+  <div class="flex items-center space-x-4">
+    <div class="min-w-0 space-y-3">
+      <span class="block">
+        <h2><strong><%= link_to message.user.email, user_path(message.user) %></strong></h2>
+      </span>
+      
+    </div>
+    <div class="sm:flex flex-col flex-shrink-0 items-end space-y-3">
+        <%= message.content %>
+
+      </div>
+  </div>
+</li>
