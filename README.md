@@ -34,7 +34,7 @@ bundle exec rspec
 
 ### Initial deployment
 ```
-# deploy redis redis
+# deploy redis
 cd deploy/redis
 fly launch --image flyio/redis:6.2.6 --no-deploy --name twire-redis # Pick your own name!
 fly volumes create redis_server --size 1
@@ -57,9 +57,6 @@ flyctl deploy
 flyctl deploy
 ```
 
-### Github actions
-
-Github actions are configured to automatically run on any push to master
 
 ### Running commands in the remote environment
 ```
@@ -68,11 +65,16 @@ cd app
 bundle exec rails console
 ```
 
+### Github actions
+
+Github actions are configured to automatically run on any push to master
+
+
 ## TODOs & Contribution
 
-This project is just an example on how to use Hotwire and https://fly.io/, therefore some are still pending, you can find a list of them here https://github.com/hdf1986/twire/issues .
+This project is just an example on how to use Hotwire and https://fly.io/, therefore some are features and fixes are pending, you can find a list of them here https://github.com/hdf1986/twire/issues .
 
-Feel free to fork the project with your fix open a pull request. You can also collaborate reporting issues at https://github.com/hdf1986/twire/issues
+Feel free to fork the project with your fix, and to open a pull request once you think it's ready. You can also collaborate reporting issues at https://github.com/hdf1986/twire/issues
 
 ## License
 
